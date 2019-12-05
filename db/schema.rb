@@ -15,9 +15,12 @@ ActiveRecord::Schema.define(version: 2019_12_03_211716) do
   create_table "cards", force: :cascade do |t|
     t.string "name"
     t.string "category"
-    t.integer "like_count"
-    t.integer "item_id"
     t.integer "user_id"
+    t.string "firstEntry"
+    t.string "secondEntry"
+    t.string "thirdEntry"
+    t.string "fourthEntry"
+    t.string "fifthEntry"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_cards_on_user_id"
@@ -38,14 +41,6 @@ ActiveRecord::Schema.define(version: 2019_12_03_211716) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["friend_id"], name: "index_friendships_on_friend_id"
     t.index ["user_id"], name: "index_friendships_on_user_id"
-  end
-
-  create_table "items", force: :cascade do |t|
-    t.string "content"
-    t.integer "card_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["card_id"], name: "index_items_on_card_id"
   end
 
   create_table "users", force: :cascade do |t|

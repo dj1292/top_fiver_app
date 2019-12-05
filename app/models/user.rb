@@ -1,7 +1,6 @@
 class User < ApplicationRecord
 
   has_many :cards
-  has_many :items, through: :cards
   has_many :comments, through: :cards
   has_many :friendships
   has_many :friends, through: :friendships
