@@ -5,15 +5,29 @@ class Api::V1::CardsController < ApplicationController
     render json: cards
   end 
 
-  def create
-    # byebug
-    card = Card.create(card_params)
+  def show 
+    card = Card.find_by(:id => params[:id])
     render json: card
   end 
 
-  def destroy
+  def create
+    # byebug
+    card = Card.find_or_create_by(card_params)
+    render json: card
+  end 
+
+  def update 
     card = Card.find_by(:id => params[:id])
+    # byebug
+    card.update(card_params)
+    render json: card
+  end 
+
+
+  def destroy
+    card = Card.find(params[:id])
     card.destroy
+    render json: card 
   end 
 
 end
