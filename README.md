@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application was created to give people a place to make their favorites known. The idea was based on a Top 5 list and how you can have multiple of these lists depending on the subject. With this application, a user will have the ability to store these lists for safe keeping and revisiting. 
 
-Things you may want to cover:
+I am using Ruby on Rails to create an API and use it as the backend server to my application. 
 
-* Ruby version
+To gain access to and run this application, fork and clone this repo to your local machine. Change directories so that you are in the backend of the app and use the command "rails s" to start the server. From there, it is much more simple to open a new page in your text editor and open the frontend of the application here. On the frontend page, use the command 
+"open index.html" to open the Top Fiver app in your browser. 
 
-* System dependencies
+Once you have the app open in your browser and the backend server successfully running you are free to use the app. 
 
-* Configuration
+Thanks for trying out the Top Fiver app in its early stages and please revisit this repo as more features and patching will come in the future!
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
