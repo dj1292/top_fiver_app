@@ -1,7 +1,7 @@
 body {
   padding: 0;
   margin: 0;
-  background: #cccaca;
+  background: #ebeaea;
 }
 /*--- navigation bar ---*/
 .navbar {
@@ -20,6 +20,15 @@ body {
 }
 .navbar-collapse {
   justify-content: flex-end;
+}
+
+.bg {
+  background-image: url('images/background.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
   .header {
     background-image: url('images/header-background.jpg');
@@ -35,6 +44,7 @@ body {
     left: 0;
     top: 0;
     background: rgba(0, 0, 0, 0.6);
+  }
 
     div.card {
       background-color: #eeeeee;

@@ -4,6 +4,7 @@ loginButton()
 formButton()
 editButton()
 deleteButton()
+sort()
 })
 
 function loginButton() {
@@ -206,7 +207,24 @@ function submitForm(event) {
 function renderCard(data) {
   // debugger
 
-  // data.map(data => {
+  class Card {
+    constructor(name, category, firstEntry, secondEntry, thirdEntry, fourthEntry, fifthEntry ) {
+      this.name = name 
+      this.category = category
+      this.firstEntry = firstEntry
+      this.secondEntry = secondEntry
+      this.thirdEntry = thirdEntry
+      this.fourthEntry = fourthEntry
+      this.fifthEntry = fifthEntry
+    }
+    showInfo() {
+      console.log(`${data.name}, ${data.category}, ${data.firstEntry}, ${data.secondEntry}, ${data.thirdEntry}, ${data.fourthEntry}, ${data.fifthEntry}`) 
+    }
+  }
+
+  const newCard = new Card(`${this.data}, ${this.data}, ${this.data}, ${this.data}, ${this.data}, ${this.data}, ${this.data}`) 
+
+  newCard.showInfo()
 
   const cardName = document.querySelector("#card-name")
   cardName.innerText = data.name
@@ -236,10 +254,25 @@ function renderCard(data) {
   const editB = document.querySelector("#editButton")
   editB.dataset.cardId = data.id
   console.log(editB)
-
-// })
-
 }
+
+// class Card {
+//   constructor(name, category, firstEntry, secondEntry, thirdEntry, fourthEntry, fifthEntry ) {
+//     this.name = name 
+//     this.category = category
+//     this.firstEntry = firstEntry
+//     this.secondEntry = secondEntry
+//     this.thirdEntry = thirdEntry
+//     this.fourthEntry = fourthEntry
+//     this.fifthEntry = fifthEntry
+//   }
+//   showInfo() {
+//     console.log(`${this.name}, ${this.category}, ${this.firstEntry}, ${this.secondEntry}, ${this.thirdEntry}, ${this.fourthEntry}, ${this.fifthEntry}`) 
+//   }
+// }
+// const card1 = new Card('Test', 'Testy', 'Test', 'Test2', 'Test3', 'Test4', 'Test5')
+
+// card1.showInfo()
 
 function editButton() {
   const edit_button = document.querySelector("#editButton")
@@ -464,5 +497,32 @@ function deleteCard(event) {
   })
 }
 
+function sort() {
+  const sortButton = document.querySelector('#Sort')
+  sortButton.addEventListener("click", sortCards)
+}
+
+function sortCards(event) {
+  console.log(event)
+  fetch(`http://localhost:3000/api/v1/cards`, {
+    method: 'GET',
+  }).then(res => res.json())
+  .then(data => {
+    data.sort(function(a, b) {
+      var cardA = a.name.toUpperCase(); // ignore upper and lowercase
+      var cardB = b.name.toUpperCase(); // ignore upper and lowercase
+      if (cardA < cardB) {
+        return -1;
+      }
+      if (cardA > cardB) {
+        return 1;
+      }
+    
+      // names must be equal
+      return 0;
+    });
+    console.log(data)
+  })
+}
 
 
