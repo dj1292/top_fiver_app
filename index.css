@@ -46,22 +46,28 @@ body {
     background: rgba(0, 0, 0, 0.6);
   }
 
-    div.card {
-      background-color: #eeeeee;
-      height: 15px;
-      width: 15px;
-      box-shadow: 10px 10px grey;
-      padding: 10px;
-      border-radius: 10px;
-    }
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+  }
 
-    #card-name {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
-      grid-gap: 20px;
-      padding-top: 10px;
-      padding-bottom: 30px;
-    }
-  
-  
+  div.card {
+    background-color: #eeeeee;
+    height: 350px;
+    width: 300px;
+    box-shadow: 10px 10px grey;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  p {
+    font-size: 1.5em;
+    color: black;
+    font-family: Helvetica;
+  }
+
+

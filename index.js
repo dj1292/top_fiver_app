@@ -5,6 +5,7 @@ formButton()
 editButton()
 deleteButton()
 sort()
+displayCards()
 })
 
 function loginButton() {
@@ -256,6 +257,36 @@ function renderCard(data) {
   console.log(editB)
 }
 
+function displayCards() {
+  fetch(`http://localhost:3000/api/v1/cards`, {
+    method: 'GET',
+  }).then(res => res.json())
+  .then(data => {
+    // const map = data.map(card => card)
+    const map = document.getElementById('allCards').innerHTML = data.map(card => 
+      `<div>
+      <div>Name: ${card.name}</div>
+      <div>Category: ${card.category}</div>
+      <div>1: ${card.firstEntry}</div>
+      <div>2: ${card.secondEntry}</div>
+      <div>3: ${card.thirdEntry}</div>
+      <div>4: ${card.fourthEntry}</div>
+      <div>5: ${card.fifthEntry}</div>
+    </div>`)
+    // const map1 = document.getElementById('#userCards').innerHTML = data.map(card =>
+    //   `<div>
+    //   <div>Name: ${card.name}</div>
+      // <div>Category: ${card.category}</div>
+      // <div>1: ${card.firstEntry}</div>
+      // <div>2: ${card.secondEntry}</div>
+      // <div>3: ${card.thirdEntry}</div>
+      // <div>4: ${card.fourthEntry}</div>
+      // <div>5: ${card.fifthEntry}</div>
+    //   </div>`
+    //   ).join('')
+      console.log(map)
+  })
+}
 // class Card {
 //   constructor(name, category, firstEntry, secondEntry, thirdEntry, fourthEntry, fifthEntry ) {
 //     this.name = name 
@@ -522,6 +553,16 @@ function sortCards(event) {
       return 0;
     });
     console.log(data)
+    document.getElementById('allCards').innerHTML = data.map(card => 
+      `<div>
+      <div>Name: ${card.name}</div>
+      <div>Category: ${card.category}</div>
+      <div>1: ${card.firstEntry}</div>
+      <div>2: ${card.secondEntry}</div>
+      <div>3: ${card.thirdEntry}</div>
+      <div>4: ${card.fourthEntry}</div>
+      <div>5: ${card.fifthEntry}</div>
+    </div>`)
   })
 }
 
