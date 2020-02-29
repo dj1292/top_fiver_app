@@ -55,9 +55,9 @@ body {
     padding-bottom: 30px;
   }
 
-  div.card {
+  div#theCards {
     background-color: #eeeeee;
-    height: 350px;
+    height: 250px;
     width: 300px;
     box-shadow: 10px 10px grey;
     padding: 10px;

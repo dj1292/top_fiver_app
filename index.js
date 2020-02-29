@@ -264,26 +264,19 @@ function displayCards() {
   .then(data => {
     // const map = data.map(card => card)
     const map = document.getElementById('allCards').innerHTML = data.map(card => 
-      `<div>
-      <div>Name: ${card.name}</div>
-      <div>Category: ${card.category}</div>
-      <div>1: ${card.firstEntry}</div>
-      <div>2: ${card.secondEntry}</div>
-      <div>3: ${card.thirdEntry}</div>
-      <div>4: ${card.fourthEntry}</div>
-      <div>5: ${card.fifthEntry}</div>
+      `<div id="theCards">
+      <ul>
+        <div>Name: ${card.name}</div>
+        <div>Category: ${card.category}</div>
+        <li>1: ${card.firstEntry}</li>
+        <li>2: ${card.secondEntry}</li>
+        <li>3: ${card.thirdEntry}</li>
+        <li>4: ${card.fourthEntry}</li>
+        <li>5: ${card.fifthEntry}</li>
+        <Button id="cardEditButton"><b>Edit</b></Button>
+        <Button id="cardDeleteButton"><b>Delete</b></Button>
+      </ul>
     </div>`)
-    // const map1 = document.getElementById('#userCards').innerHTML = data.map(card =>
-    //   `<div>
-    //   <div>Name: ${card.name}</div>
-      // <div>Category: ${card.category}</div>
-      // <div>1: ${card.firstEntry}</div>
-      // <div>2: ${card.secondEntry}</div>
-      // <div>3: ${card.thirdEntry}</div>
-      // <div>4: ${card.fourthEntry}</div>
-      // <div>5: ${card.fifthEntry}</div>
-    //   </div>`
-    //   ).join('')
       console.log(map)
   })
 }
