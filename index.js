@@ -547,14 +547,18 @@ function sortCards(event) {
     });
     console.log(data)
     document.getElementById('allCards').innerHTML = data.map(card => 
-      `<div>
-      <div>Name: ${card.name}</div>
-      <div>Category: ${card.category}</div>
-      <div>1: ${card.firstEntry}</div>
-      <div>2: ${card.secondEntry}</div>
-      <div>3: ${card.thirdEntry}</div>
-      <div>4: ${card.fourthEntry}</div>
-      <div>5: ${card.fifthEntry}</div>
+      `<div id=sortedCards>
+      <ul>
+        <div>Name: ${card.name}</div>
+        <div>Category: ${card.category}</div>
+        <div>1: ${card.firstEntry}</div>
+        <div>2: ${card.secondEntry}</div>
+        <div>3: ${card.thirdEntry}</div>
+        <div>4: ${card.fourthEntry}</div>
+        <div>5: ${card.fifthEntry}</div>
+        <Button id="cardEditButton"><b>Edit</b></Button>
+        <Button id="cardDeleteButton"><b>Delete</b></Button>
+      </ul>
     </div>`)
   })
 }

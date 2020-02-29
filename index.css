@@ -59,7 +59,16 @@ body {
     background-color: #eeeeee;
     height: 250px;
     width: 300px;
-    box-shadow: 10px 10px grey;
+    box-shadow: 10px 10px rgb(134, 94, 6);
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  div#sortedCards {
+    background-color: #eeeeee;
+    height: 250px;
+    width: 300px;
+    box-shadow: 10px 10px rgb(134, 94, 6);
     padding: 10px;
     border-radius: 10px;
   }
