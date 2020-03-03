@@ -57,7 +57,7 @@ body {
 
   div#theCards {
     background-color: #eeeeee;
-    height: 250px;
+    height: 225px;
     width: 300px;
     box-shadow: 10px 10px rgb(134, 94, 6);
     padding: 10px;
@@ -66,7 +66,7 @@ body {
 
   div#sortedCards {
     background-color: #eeeeee;
-    height: 250px;
+    height: 225px;
     width: 300px;
     box-shadow: 10px 10px rgb(134, 94, 6);
     padding: 10px;

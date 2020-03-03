@@ -6,6 +6,7 @@ editButton()
 deleteButton()
 sort()
 displayCards()
+// editThisCard()
 })
 
 function loginButton() {
@@ -208,45 +209,46 @@ function submitForm(event) {
 function renderCard(data) {
   // debugger
 
-  class Card {
-    constructor(name, category, firstEntry, secondEntry, thirdEntry, fourthEntry, fifthEntry ) {
-      this.name = name 
-      this.category = category
-      this.firstEntry = firstEntry
-      this.secondEntry = secondEntry
-      this.thirdEntry = thirdEntry
-      this.fourthEntry = fourthEntry
-      this.fifthEntry = fifthEntry
-    }
-    showInfo() {
-      console.log(`${data.name}, ${data.category}, ${data.firstEntry}, ${data.secondEntry}, ${data.thirdEntry}, ${data.fourthEntry}, ${data.fifthEntry}`) 
-    }
-  }
+  // class Card {
+  //   constructor(name, category, firstEntry, secondEntry, thirdEntry, fourthEntry, fifthEntry ) {
+  //     this.name = name 
+  //     this.category = category
+  //     this.firstEntry = firstEntry
+  //     this.secondEntry = secondEntry
+  //     this.thirdEntry = thirdEntry
+  //     this.fourthEntry = fourthEntry
+  //     this.fifthEntry = fifthEntry
+  //   }
+  //   showInfo() {
+  //     console.log(`${data.name}, ${data.category}, ${data.firstEntry}, ${data.secondEntry}, ${data.thirdEntry}, ${data.fourthEntry}, ${data.fifthEntry}`) 
+  //   }
+  //   console.log(this)
+  //   // const newCard = new Card(`${this.data}, ${this.data}, ${this.data}, ${this.data}, ${this.data}, ${this.data}, ${this.data}`) 
+  //   newCard.showInfo()
+  // }
 
-  const newCard = new Card(`${this.data}, ${this.data}, ${this.data}, ${this.data}, ${this.data}, ${this.data}, ${this.data}`) 
 
-  newCard.showInfo()
 
-  const cardName = document.querySelector("#card-name")
-  cardName.innerText = data.name
+  // const cardName = document.querySelector("#card-name")
+  // cardName.innerText = data.name
 
-  const cardCategory = document.querySelector("#card-cat")
-  cardCategory.innerText = data.category
+  // const cardCategory = document.querySelector("#card-cat")
+  // cardCategory.innerText = data.category
 
-  const cardEntry1 = document.querySelector("#first-entry")
-  cardEntry1.innerText = data.firstEntry
+  // const cardEntry1 = document.querySelector("#first-entry")
+  // cardEntry1.innerText = data.firstEntry
 
-  const cardEntry2= document.querySelector("#second-entry")
-  cardEntry2.innerText = data.secondEntry
+  // const cardEntry2= document.querySelector("#second-entry")
+  // cardEntry2.innerText = data.secondEntry
 
-  const cardEntry3= document.querySelector("#third-entry")
-  cardEntry3.innerText = data.thirdEntry
+  // const cardEntry3= document.querySelector("#third-entry")
+  // cardEntry3.innerText = data.thirdEntry
 
-  const cardEntry4 = document.querySelector("#fourth-entry")
-  cardEntry4.innerText = data.fourthEntry
+  // const cardEntry4 = document.querySelector("#fourth-entry")
+  // cardEntry4.innerText = data.fourthEntry
 
-  const cardEntry5 = document.querySelector("#fifth-entry")
-  cardEntry5.innerText = data.fifthEntry
+  // const cardEntry5 = document.querySelector("#fifth-entry")
+  // cardEntry5.innerText = data.fifthEntry
 
   const deleteB = document.querySelector("#deleteButton")
   deleteB.dataset.cardId = data.id
@@ -262,41 +264,52 @@ function displayCards() {
     method: 'GET',
   }).then(res => res.json())
   .then(data => {
-    // const map = data.map(card => card)
-    const map = document.getElementById('allCards').innerHTML = data.map(card => 
-      `<div id="theCards">
-      <ul>
-        <div>Name: ${card.name}</div>
-        <div>Category: ${card.category}</div>
-        <li>1: ${card.firstEntry}</li>
-        <li>2: ${card.secondEntry}</li>
-        <li>3: ${card.thirdEntry}</li>
-        <li>4: ${card.fourthEntry}</li>
-        <li>5: ${card.fifthEntry}</li>
-        <Button id="cardEditButton"><b>Edit</b></Button>
-        <Button id="cardDeleteButton"><b>Delete</b></Button>
-      </ul>
-    </div>`)
-      console.log(map)
-  })
-}
-// class Card {
-//   constructor(name, category, firstEntry, secondEntry, thirdEntry, fourthEntry, fifthEntry ) {
-//     this.name = name 
-//     this.category = category
-//     this.firstEntry = firstEntry
-//     this.secondEntry = secondEntry
-//     this.thirdEntry = thirdEntry
-//     this.fourthEntry = fourthEntry
-//     this.fifthEntry = fifthEntry
-//   }
-//   showInfo() {
-//     console.log(`${this.name}, ${this.category}, ${this.firstEntry}, ${this.secondEntry}, ${this.thirdEntry}, ${this.fourthEntry}, ${this.fifthEntry}`) 
-//   }
-// }
-// const card1 = new Card('Test', 'Testy', 'Test', 'Test2', 'Test3', 'Test4', 'Test5')
+    data.forEach(card => {
+      const newCard = new Card(`${card.name}, ${card.category}, ${card.firstEntry}, ${card.secondEntry}, ${card.thirdEntry}, ${card.fourthEntry}, ${card.fifthEntry}`)
+      document.getElementById('allCards').innerHTML += newCard.showCard()
+    });
+    })
+  }
 
-// card1.showInfo()
+
+// function editThisCard() {
+//   const thisCard = document.getElementById('#cardEditButton')
+//     thisCard.addEventListener('click', cardEditButton)
+// }
+
+// function cardEditButton(event) {
+//   console.log("Im in cardEdit yeet!")
+//   const cardId = event.target.dataset.cardId 
+//   console.log(event.target.dataset)
+//   console.log(`http://localhost:3000/api/v1/cards/${cardId}`)
+//   fetch(`http://localhost:3000/api/v1/cards/${cardId}`)
+//   .then(res => res.json())
+//   .then(data => {
+//     // debugger
+//     createEditForm(data)
+
+//   })
+//   // .then(console.log)
+// }
+
+// function cardDeleteButton() {
+//   const deleteButton = document.getElementById("#cardDeleteButton")
+//   // console.log(deleteButton)
+//   deleteButton.addEventListener("click", cardDelete)
+// }
+
+// function cardDelete(event) {
+//   // debugger
+//   const cardId = event.target.parentNode.dataset.cardId
+//   console.log(event.target.parentNode.dataset)
+// // debugger
+//   fetch(`http://localhost:3000/api/v1/cards/${cardId}`,{
+//     method: 'DELETE',
+//   }).then(res => res.json())
+//   .then(data =>  {
+//   console.log(data)
+//   })
+// }
 
 function editButton() {
   const edit_button = document.querySelector("#editButton")
@@ -556,11 +569,13 @@ function sortCards(event) {
         <div>3: ${card.thirdEntry}</div>
         <div>4: ${card.fourthEntry}</div>
         <div>5: ${card.fifthEntry}</div>
-        <Button id="cardEditButton"><b>Edit</b></Button>
-        <Button id="cardDeleteButton"><b>Delete</b></Button>
-      </ul>
-    </div>`)
-  })
-}
+        </ul>
+        </div>`)
+      })
+
+      // Buttons to be rendered with each card, move into sortCards()
+      // <Button id="cardEditButton"><b>Edit</b></Button>
+      // <Button id="cardDeleteButton"><b>Delete</b></Button>
+    }
 
 
